@@ -1,6 +1,11 @@
 import { ScrollText } from 'lucide-react';
 
+/**
+ * 시나리오
+ * 1. 크롬 인스턴스를 이용해서 로그인을 관리 한다.
+ */
 function ScrapButton() {
+  // 스크랩 버튼 클릭
   const handleClick = async () => {
     try {
       await chrome.runtime.sendMessage({
