@@ -12,6 +12,9 @@
     "sidePanel"
   ],
   "host_permissions": ["https://api.pagescrap.com/*", "https://auth.pagescrap.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
   "side_panel": {
     "default_path": "sidePanel.html"
   },

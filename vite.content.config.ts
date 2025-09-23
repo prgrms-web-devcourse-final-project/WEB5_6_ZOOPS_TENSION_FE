@@ -12,9 +12,7 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      input: {
-        content: resolve(__dirname, 'src/content-script/index.tsx'),
-      },
+      input: resolve(__dirname, 'src/content-script/index.tsx'),
       output: {
         entryFileNames: 'content.js',
         format: 'iife',

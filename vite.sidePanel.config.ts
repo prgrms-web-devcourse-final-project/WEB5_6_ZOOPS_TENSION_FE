@@ -2,9 +2,10 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'path';
+import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react(), tailwindcss(), svgr()],
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
@@ -13,14 +14,19 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        sideTab: resolve(__dirname, 'src/sidePanel/index.tsx'),
+        sidePanel: resolve(__dirname, 'src/sidePanel/index.tsx'),
+        globals: resolve(__dirname, 'src/globals.css'),
       },
+
       output: {
-        entryFileNames: 'sidePanel.js',
+        entryFileNames: '[name].js',
+        assetFileNames: '[name].[ext]',
         format: 'es',
+        inlineDynamicImports: false,
       },
     },
     outDir: 'dist',
     emptyOutDir: false,
+    cssCodeSplit: true,
   },
 });
