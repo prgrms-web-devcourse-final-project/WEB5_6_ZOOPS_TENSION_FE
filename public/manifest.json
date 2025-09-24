@@ -3,23 +3,16 @@
   "name": "ZOOPS-TENSION",
   "version": "1.0.0",
   "description": "ZOOPZOOP 웹 서비스에서 제공하는 웹페이지 스크랩 크롬 확장 프로그램",
-  "permissions": [
-    "activeTab",
-    "storage",
-    "cookies",
-    "background",
-    "identity",
-    "sidePanel"
-  ],
-  "host_permissions": ["https://api.pagescrap.com/*", "https://auth.pagescrap.com/*"],
+  "permissions": ["activeTab", "storage", "cookies", "background", "identity"],
   "background": {
     "service_worker": "background.js"
   },
-  "side_panel": {
-    "default_path": "sidePanel.html"
-  },
   "action": {
-    "default_title": "Zoops Extension"
+    "default_popup": "popup.html",
+    "default_title": "Zoops Extension",
+    "default_icon": {
+      "16": "icons/icon16.png"
+    }
   },
   "content_scripts": [
     {
