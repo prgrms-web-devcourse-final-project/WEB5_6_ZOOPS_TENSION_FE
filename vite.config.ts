@@ -14,10 +14,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        sidePanel: resolve(__dirname, 'src/sidePanel/index.tsx'),
-        globals: resolve(__dirname, 'src/globals.css'),
+        background: resolve(__dirname, 'src/background/index.ts'),
+        // popup: resolve(__dirname, 'src/popup/popup.html'),
       },
-
       output: {
         entryFileNames: '[name].js',
         assetFileNames: '[name].[ext]',
@@ -26,7 +25,7 @@ export default defineConfig({
       },
     },
     outDir: 'dist',
-    emptyOutDir: false,
-    cssCodeSplit: true,
+    emptyOutDir: true,
+    cssCodeSplit: false,
   },
 });
