@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
-import ScrapButton from './ScrapButton.tsx';
 import tailwindCss from '@/globals.css?inline';
+import InjectedApp from './InjectedApp';
 
 const injectButton = () => {
   if (document.getElementById('zoops-tension-root')) {
@@ -10,15 +10,12 @@ const injectButton = () => {
   const root = document.createElement('div');
   root.id = 'zoops-tension-root';
 
-  // 줍스텐션 root 스타일 정의
-  Object.assign(root.style, {
-    position: 'fixed',
-    bottom: '100px',
-    right: '20px',
-    zIndex: '9999',
-  });
   // body에 root 주입
   document.body.appendChild(root);
+  Object.assign(root.style, {
+    all: 'initial',
+    display: 'contents',
+  });
 
   const shadow = root.attachShadow({ mode: 'closed' });
 
@@ -26,7 +23,7 @@ const injectButton = () => {
   styleEl.textContent = tailwindCss;
   shadow.appendChild(styleEl);
 
-  createRoot(shadow).render(<ScrapButton />);
+  createRoot(shadow).render(<InjectedApp />);
 };
 
 if (document.readyState === 'complete') {

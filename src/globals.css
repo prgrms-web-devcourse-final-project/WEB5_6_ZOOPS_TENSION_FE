@@ -10,6 +10,9 @@
   .flex-center {
     @apply flex justify-center items-center;
   }
+  .animate-loading {
+    animation: spin 2s 0.25s linear infinite;
+  }
 }
 
 * {
