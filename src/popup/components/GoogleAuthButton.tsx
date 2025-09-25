@@ -5,7 +5,7 @@ const GoogleAuthButton = () => {
   return (
     <Button
       className="border border-gray-200 hover:bg-gray-100"
-      icon={<GoogleLogo fontSize={20} />}
+      icon={<GoogleLogo className="size-4" />}
     >
       구글로 시작하기
     </Button>

@@ -19,7 +19,7 @@ export const useDrag = () => {
     });
   }, []);
 
-  // 마우스 다운 핸들러
+  // 드래그 시작 핸들러
   const handleDragStart = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (e.button !== 0) return;
     const { pageX, pageY } = e;

@@ -16,13 +16,13 @@ const Button = ({ children, icon, className }: Props) => {
     <button
       type="button"
       className={tw(
-        'flex-center gap-1 text-black rounded-lg py-3 w-full cursor-pointer',
+        'flex-center gap-2 text-black rounded-lg py-2 w-full cursor-pointer active:scale-[0.98] shadow-sm',
         className
       )}
       onClick={handleClick}
     >
       {icon}
-      <span className="font-bold text-base">{children}</span>
+      <span className="font-medium text-sm w-2/5">{children}</span>
     </button>
   );
 };
