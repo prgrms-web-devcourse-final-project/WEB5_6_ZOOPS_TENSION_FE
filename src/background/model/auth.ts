@@ -3,10 +3,11 @@ import {
   createNewTabs,
   getChromeStorage,
   removeChromeStorage,
+  setChromeCookie,
   setChromeStorage,
 } from './chrome';
 import {
-  API_BASE,
+  BASE_URL,
   POLLING_INTERVAL,
   POLLING_TIMEOUT,
   STORAGE_KEY,
@@ -23,11 +24,11 @@ export const startLogin = async (provider: Provider): Promise<MessageResponse> =
     const state = generateState();
     // 데이터 저장
     await setChromeStorage({
-      authState: state,
+      [STORAGE_KEY.AUTH_STATE]: state,
     });
 
     // 새탭 열기
-    const authUrl = `${API_BASE}/oauth2/authorization/${provider}?source=extension&state=${state}`;
+    const authUrl = `${BASE_URL}/oauth2/authorization/${provider}?source=extension&state=${state}`;
 
     await createNewTabs(authUrl);
 
@@ -55,7 +56,7 @@ export const startPolling = async (state: string): Promise<void> => {
           reject(new Error('시간 초과'));
         }
 
-        const response = await fetch(`${API_BASE}/api/v1/auth/result?state=${state}`, {
+        const response = await fetch(`${BASE_URL}/api/v1/auth/result?state=${state}`, {
           method: 'GET',
         });
 
@@ -71,10 +72,8 @@ export const startPolling = async (state: string): Promise<void> => {
         }
 
         if (result.data?.accessToken && result.data?.sessionId) {
-          await setChromeStorage({
-            accessToken: result.data.accessToken,
-            sessionId: result.data.sessionId,
-          });
+          await setChromeCookie('accessToken', result.data.accessToken);
+          await setChromeCookie('sessionId', result.data.sessionId);
           await removeChromeStorage([STORAGE_KEY.AUTH_STATE]);
           clearInterval(interval);
           resolve();

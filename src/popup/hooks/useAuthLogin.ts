@@ -1,13 +1,13 @@
 import { useCallback } from 'react';
 import { sendMessage } from '../model/utils';
 import type { MessageResponse, Provider } from '@/utils/types';
-import { MESSAGE_STATE } from '@/utils/constants';
+import { MESSAGE_ACTION } from '@/utils/constants';
 
 export const useAuthLogin = () => {
   const handleLogin = useCallback(async (provider: Provider) => {
     try {
       const result = await sendMessage({
-        action: MESSAGE_STATE.LOGIN,
+        action: MESSAGE_ACTION.LOGIN,
         provider,
       });
 
@@ -23,7 +23,7 @@ export const useAuthLogin = () => {
   const checkAuthStatus = useCallback(async (): Promise<MessageResponse> => {
     try {
       const status = (await sendMessage({
-        action: MESSAGE_STATE.CHECK_AUTH,
+        action: MESSAGE_ACTION.CHECK_AUTH,
       })) as MessageResponse;
       return status;
     } catch {
@@ -33,7 +33,7 @@ export const useAuthLogin = () => {
 
   const logout = useCallback(async () => {
     try {
-      await sendMessage({ action: MESSAGE_STATE.LOGOUT });
+      await sendMessage({ action: MESSAGE_ACTION.LOGOUT });
     } catch (error) {
       console.error('로그아웃 실패:', error);
       throw error;

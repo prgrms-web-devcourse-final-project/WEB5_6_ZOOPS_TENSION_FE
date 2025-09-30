@@ -1,41 +1,35 @@
 import { Check } from 'lucide-react';
 import { useState } from 'react';
 import { tw } from '@/utils/tw';
+import { sendMessage } from '../model/utils';
+import { BUTTON_STATUS, MESSAGE_ACTION } from '../model/constants';
+import type { ScrapButton } from '../model/type';
 
 interface Props {
   isDragging: boolean;
 }
 
-/**
- * 시나리오
- * 1. 크롬 인스턴스를 이용해서 로그인을 관리 한다.
- */
 function ScrapButton({ isDragging }: Props) {
-  const [buttonState, setButtonState] = useState('default');
+  const [buttonState, setButtonState] = useState<ScrapButton>(BUTTON_STATUS.DEFAULT);
 
-  // 스크랩 버튼 클릭
   const handleClick = async () => {
-    // cookie 확인 로직
-
     if (isDragging) return;
-    setButtonState('loading');
-    // 실제 API 호출이나 로직 처리
-    await new Promise((resolve) => setTimeout(resolve, 2000)); // 2초 대기
-    setButtonState('success');
+    setButtonState(BUTTON_STATUS.LOADING);
+    try {
+      const result = await sendMessage({
+        action: MESSAGE_ACTION.SCRAP,
+        url: window.location.href,
+      });
 
-    // 3초 후 원래 상태로 복귀
-    setTimeout(() => setButtonState('default'), 3000);
-
-    // try {
-    //   await chrome.runtime.sendMessage({
-    //     action: 'openSidePanel',
-    //     data: { currentUrl: window.location.href },
-    //   });
-    // } catch (error) {
-    //   if (error instanceof Error) {
-    //     console.error(error.message);
-    //   }
-    // }
+      console.log('scrap result', result);
+      setButtonState(BUTTON_STATUS.SUCCESS);
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error(error.message);
+      }
+    } finally {
+      setButtonState(BUTTON_STATUS.DEFAULT);
+    }
   };
 
   return (

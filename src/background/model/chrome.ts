@@ -1,3 +1,5 @@
+import { BASE_URL } from '@/utils/constants';
+
 /**
  * Chrome Storage에 데이터 저장
  */
@@ -70,6 +72,65 @@ export const removeChromeStorage = async (key: string | string[]): Promise<void>
   } catch (error) {
     throw new Error(
       `Storage 삭제 실패: ${error instanceof Error ? error.message : '알 수 없는 오류'}`
+    );
+  }
+};
+
+/**
+ * Chrome 쿠키에 데이터 저장
+ */
+export const setChromeCookie = async (name: string, value: string): Promise<void> => {
+  if (!name || !value) {
+    throw new Error('setChromeCookie:  name, value 모두 필요합니다.');
+  }
+
+  try {
+    await chrome.cookies.set({
+      url: BASE_URL,
+      name,
+      value,
+      path: '/api/',
+      secure: true,
+      sameSite: 'no_restriction',
+    });
+  } catch (error) {
+    throw new Error(
+      `쿠키 저장 실패: ${error instanceof Error ? error.message : '알 수 없는 오류'}`
+    );
+  }
+};
+
+/**
+ * Chrome 쿠키에서 데이터 가져오기
+ */
+export const getChromeCookie = async (name: string): Promise<string | null> => {
+  if (!name) {
+    throw new Error('getChromeCookie:  name 모두 필요합니다.');
+  }
+
+  try {
+    const cookie = await chrome.cookies.get({ url: `${BASE_URL}/api/`, name });
+    return cookie?.value ?? null;
+  } catch (error) {
+    throw new Error(
+      `쿠키 조회 실패: ${error instanceof Error ? error.message : '알 수 없는 오류'}`
+    );
+  }
+};
+
+/**
+ * Chrome 쿠키 삭제
+ */
+export const removeChromeCookie = async (name: string): Promise<void> => {
+  if (!name) {
+    throw new Error('removeChromeCookie: name 필요합니다.');
+  }
+
+  try {
+    await chrome.cookies.remove({ url: `${BASE_URL}/api/`, name });
+  } catch (error) {
+    throw new Error(
+      `쿠키 삭제 실패: ${error instanceof Error ? error.message : '알 수 없는 오류'}`
     );
   }
 };

@@ -1,11 +1,12 @@
-export const API_BASE = 'https://api.test.zoopzoop.kro.kr';
+export const BASE_URL = 'https://api.test.zoopzoop.kro.kr';
 export const POLLING_INTERVAL = 1000; // 1초
 export const POLLING_TIMEOUT = 120000; // 2분
 
-export const MESSAGE_STATE = {
+export const MESSAGE_ACTION = {
   LOGIN: 'LOGIN',
   LOGOUT: 'LOGOUT',
   CHECK_AUTH: 'CHECK_AUTH',
+  SCRAP: 'SCRAP',
 } as const;
 
 export const PROVIDER = {

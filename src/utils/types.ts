@@ -1,8 +1,8 @@
-import type { MESSAGE_STATE, PROVIDER } from './constants';
+import type { MESSAGE_ACTION, PROVIDER } from './constants';
 
 export type Provider = (typeof PROVIDER)[keyof typeof PROVIDER];
 
-type ACTION = (typeof MESSAGE_STATE)[keyof typeof MESSAGE_STATE];
+type MessageAction = (typeof MESSAGE_ACTION)[keyof typeof MESSAGE_ACTION];
 
 export interface MessageResponse {
   success: boolean;
@@ -11,5 +11,5 @@ export interface MessageResponse {
 }
 
 export interface MessageRequest {
-  action: ACTION;
+  action: MessageAction;
 }
