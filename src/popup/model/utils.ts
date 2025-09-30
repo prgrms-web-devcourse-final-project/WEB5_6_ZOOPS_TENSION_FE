@@ -1,3 +1,4 @@
+// background 메지시 전송
 export const sendMessage = <MessageRequest, MessageResponse>(
   message: MessageRequest
 ): Promise<MessageResponse> => {
