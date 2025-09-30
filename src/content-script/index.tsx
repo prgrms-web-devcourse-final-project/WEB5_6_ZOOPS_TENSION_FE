@@ -31,3 +31,15 @@ if (document.readyState === 'complete') {
 } else {
   window.addEventListener('load', injectButton);
 }
+
+// ===  웹페이지 → 확장 메시지 중계 추가 ===
+window.addEventListener('message', (event) => {
+  if (event.source !== window) return;
+  if (event.data?.direction !== 'ZOOPS-TENSION') return;
+
+  chrome.runtime.sendMessage({
+    from: 'content',
+    action: event.data.action,
+    data: event.data.data,
+  });
+});

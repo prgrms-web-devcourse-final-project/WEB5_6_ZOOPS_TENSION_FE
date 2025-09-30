@@ -4,8 +4,11 @@
   "version": "1.0.0",
   "description": "ZOOPZOOP 웹 서비스에서 제공하는 웹페이지 스크랩 크롬 확장 프로그램",
   "permissions": ["activeTab", "storage", "cookies", "background", "identity"],
+  "host_permissions": ["https://api.test.zoopzoop.kro.kr/*"],
+
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
   "action": {
     "default_popup": "popup.html",

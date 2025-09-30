@@ -1,17 +1,25 @@
-chrome.runtime.onMessage.addListener(async (message, sender) => {
-  if (message.action === 'openSidePanel') {
-    const res = await openSideTab(sender.tab?.id);
+import { MESSAGE_STATE } from '@/utils/constants';
+import { checkAuthStatus, logout, startLogin } from './model/auth';
 
-    return res;
+chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
+  if (request.action === MESSAGE_STATE.LOGIN) {
+    startLogin(request.provider)
+      .then(sendResponse)
+      .catch((error) => sendResponse({ success: false, error: error.message }));
+    return true;
   }
 
-  if (message.action === 'close-sidePanel') {
-    setTimeout(() => window.close(), 2000);
+  if (request.action === MESSAGE_STATE.CHECK_AUTH) {
+    checkAuthStatus()
+      .then(sendResponse)
+      .catch((error) => sendResponse({ isLoggedIn: false, error: error.message }));
+    return true;
+  }
+
+  if (request.action === MESSAGE_STATE.LOGOUT) {
+    logout()
+      .then(() => sendResponse({ success: true }))
+      .catch((error) => sendResponse({ success: false, error: error.message }));
+    return true;
   }
 });
-
-// Side Panel Open
-const openSideTab = async (tabId?: number): Promise<void> => {
-  if (!tabId) throw Error('Tab ID not Found');
-  await chrome.sidePanel.open({ tabId });
-};
