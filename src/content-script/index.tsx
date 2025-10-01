@@ -15,6 +15,7 @@ const injectButton = () => {
   Object.assign(root.style, {
     all: 'initial',
     display: 'contents',
+    zIndex: '2147483647',
   });
 
   const shadow = root.attachShadow({ mode: 'closed' });

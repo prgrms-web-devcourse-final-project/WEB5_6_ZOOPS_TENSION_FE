@@ -13,3 +13,13 @@ export interface MessageResponse {
 export interface MessageRequest {
   action: MessageAction;
 }
+
+export interface APIResponse<T> {
+  status: number;
+  msg: string;
+  data: T;
+}
+
+export type Result<T> =
+  | { success: true; data: T; msg: string; status?: number }
+  | { success: false; msg: string; status?: number };

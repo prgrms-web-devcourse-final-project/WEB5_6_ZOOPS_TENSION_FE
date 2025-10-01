@@ -5,9 +5,7 @@ import { scrapUrl } from './model/scrap';
 chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
   // 로그인
   if (request.action === MESSAGE_ACTION.LOGIN) {
-    startLogin(request.provider)
-      .then(sendResponse)
-      .catch((error) => sendResponse({ success: false, error: error.message }));
+    startLogin(request.provider).then(sendResponse);
     return true;
   }
 
@@ -29,6 +27,7 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
 
   // 스크랩
   if (request.action === MESSAGE_ACTION.SCRAP) {
-    scrapUrl(request.url);
+    scrapUrl(request.url).then(sendResponse);
+    return true;
   }
 });

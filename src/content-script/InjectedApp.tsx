@@ -11,6 +11,7 @@ const InjectedApp = () => {
       style={{
         top: position.y,
         left: position.x,
+        zIndex: 2147483647,
       }}
     >
       <DragSection onDragStart={handleDragStart} />

@@ -3,7 +3,6 @@ import {
   createNewTabs,
   getChromeStorage,
   removeChromeStorage,
-  setChromeCookie,
   setChromeStorage,
 } from './chrome';
 import {
@@ -12,6 +11,7 @@ import {
   POLLING_TIMEOUT,
   STORAGE_KEY,
 } from '@/utils/constants';
+import { createNotification } from './utils';
 
 // uuid 생성
 export const generateState = () => {
@@ -53,6 +53,7 @@ export const startPolling = async (state: string): Promise<void> => {
         if (Date.now() - startTime > POLLING_TIMEOUT) {
           clearInterval(interval);
           await removeChromeStorage([STORAGE_KEY.AUTH_STATE]);
+          createNotification.fail({ message: '로그인 실패' });
           reject(new Error('시간 초과'));
         }
 
@@ -72,8 +73,11 @@ export const startPolling = async (state: string): Promise<void> => {
         }
 
         if (result.data?.accessToken && result.data?.sessionId) {
-          await setChromeCookie('accessToken', result.data.accessToken);
-          await setChromeCookie('sessionId', result.data.sessionId);
+          await setChromeStorage({
+            [STORAGE_KEY.ACCESS_TOKEN]: result.data.accessToken,
+            [STORAGE_KEY.SESSION_ID]: result.data.sessionId,
+          });
+          createNotification.success({ message: '로그인 성공!' });
           await removeChromeStorage([STORAGE_KEY.AUTH_STATE]);
           clearInterval(interval);
           resolve();

@@ -1,3 +1,4 @@
+// background 통신용
 export const sendMessage = <MessageRequest, MessageResponse>(
   message: MessageRequest
 ): Promise<MessageResponse> => {
