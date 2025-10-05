@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { BUTTON_STATUS, MESSAGE_ACTION } from '../model/constants';
 import type {
   ScrapButtonStatus,
   ScrapMessageRequest,
   ScrapMessageResponse,
 } from '../model/type';
-import { sendMessage } from '../model/utils';
+import { BUTTON_STATUS, MESSAGE_ACTION } from '@/utils/constants';
+import { sendMessage } from '@/utils/utils';
 
 export const useScrap = () => {
   const [buttonState, setButtonState] = useState<ScrapButtonStatus>(

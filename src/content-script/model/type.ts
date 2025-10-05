@@ -1,20 +1,7 @@
-import type { BUTTON_STATUS, MESSAGE_ACTION } from './constants';
+import type { BUTTON_STATUS } from '@/utils/constants';
+import type { MessageRequest, Result } from '@/utils/types';
 
 export type ScrapButtonStatus = (typeof BUTTON_STATUS)[keyof typeof BUTTON_STATUS];
-
-type MessageAction = (typeof MESSAGE_ACTION)[keyof typeof MESSAGE_ACTION];
-
-export interface MessageRequest {
-  action: MessageAction;
-}
-
-export interface MessageResponse {
-  success: boolean;
-}
-
-export type Result<T> =
-  | { success: true; data: T; msg: string; status: number }
-  | { success: false; msg: string; status?: number };
 
 // 스크랩 관련 타입
 export interface ScrapData {

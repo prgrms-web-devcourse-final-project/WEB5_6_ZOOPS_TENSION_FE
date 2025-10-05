@@ -19,3 +19,10 @@ export const STORAGE_KEY = {
   ACCESS_TOKEN: 'accessToken',
   SESSION_ID: 'sessionId',
 };
+
+export const BUTTON_STATUS = {
+  DEFAULT: 'default',
+  LOADING: 'loading',
+  SUCCESS: 'success',
+  ERROR: 'error',
+} as const;

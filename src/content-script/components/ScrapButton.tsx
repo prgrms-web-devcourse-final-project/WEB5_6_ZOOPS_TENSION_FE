@@ -1,7 +1,7 @@
 import { tw } from '@/utils/tw';
 import { Check, X } from 'lucide-react';
 import { useScrap } from '../hook/useScrap';
-import { BUTTON_STATUS } from '../model/constants';
+import { BUTTON_STATUS } from '@/utils/constants';
 
 interface Props {
   isDragging: boolean;

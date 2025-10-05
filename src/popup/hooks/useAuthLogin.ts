@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
-import { sendMessage } from '../model/utils';
 import type { MessageResponse, Provider } from '@/utils/types';
 import { MESSAGE_ACTION } from '@/utils/constants';
+import { sendMessage } from '@/utils/utils';
 
 export const useAuthLogin = () => {
   const handleLogin = useCallback(async (provider: Provider) => {
