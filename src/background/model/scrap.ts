@@ -1,5 +1,5 @@
 import { getChromeStorage } from './chrome';
-import { BASE_URL, STORAGE_KEY } from '@/utils/constants';
+import { STORAGE_KEY } from '@/utils/constants';
 import type { APIResponse, Result } from '@/utils/types';
 import { createNotification } from './utils';
 
@@ -10,6 +10,7 @@ interface ScrapData {
 type ScrapResponse = Result<ScrapData>;
 
 export const scrapUrl = async (url: string): Promise<ScrapResponse> => {
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
   try {
     const { accessToken } = await getChromeStorage<{ accessToken: string }>(
       STORAGE_KEY.ACCESS_TOKEN

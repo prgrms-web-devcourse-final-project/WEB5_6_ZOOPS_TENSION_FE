@@ -5,13 +5,10 @@ import {
   removeChromeStorage,
   setChromeStorage,
 } from './chrome';
-import {
-  BASE_URL,
-  POLLING_INTERVAL,
-  POLLING_TIMEOUT,
-  STORAGE_KEY,
-} from '@/utils/constants';
+import { POLLING_INTERVAL, POLLING_TIMEOUT, STORAGE_KEY } from '@/utils/constants';
 import { createNotification } from './utils';
+
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 // uuid 생성
 export const generateState = () => {

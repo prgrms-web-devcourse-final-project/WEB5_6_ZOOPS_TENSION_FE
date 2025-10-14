@@ -1,4 +1,3 @@
-export const BASE_URL = 'https://api.test.zoopzoop.kro.kr';
 export const POLLING_INTERVAL = 1000; // 1초
 export const POLLING_TIMEOUT = 120000; // 2분
 

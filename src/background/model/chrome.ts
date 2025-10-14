@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/utils/constants';
+const BASE_URL = process.env.BASE_URL;
 
 /**
  * Chrome Storage에 데이터 저장
@@ -86,7 +86,7 @@ export const setChromeCookie = async (name: string, value: string): Promise<void
 
   try {
     await chrome.cookies.set({
-      url: BASE_URL,
+      url: BASE_URL!,
       name,
       value,
       path: '/api/',
