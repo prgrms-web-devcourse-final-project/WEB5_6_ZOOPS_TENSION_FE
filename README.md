@@ -39,11 +39,11 @@ ZOOPS-TENSION은 현재 크롬 웹 스토어에 등록되어 있지 않습니다
 5.  **확장 프로그램 로드**
     - **'압축 해제된 확장 프로그램을 로드합니다(Load unpacked)'** 버튼을 클릭합니다.
     - 파일 탐색기가 열리면, 아까 압축을 해제했던 **`dist`** 폴더를 선택하고 확인을 누릅니다.
-      ![alt text](public/readme/howtosetting.gif)
+      ![확장 프로그램 등록 가이드](public/readme/howtosetting.gif)
 6.  **설치 완료**
     - 이제 ZOOPS-TENSION 확장 프로그램이 설치되어 브라우저 툴바에서 아이콘을 확인할 수 있습니다.
 7.  **사용 방법**
-    ![alt text](public/readme/howtouse.gif)
+    ![확장 프로그램 사용 가이드](public/readme/howtouse.gif)
 
 ---
 
