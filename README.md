@@ -46,8 +46,7 @@ ZOOPS-TENSION은 현재 크롬 웹 스토어에 등록되어 있지 않습니다
     - 확장 프로그램 팝업 창을 결고 로그인을 합니다.
     - 새로 열린 로그인 확인 탭을 닫고 원하는 페이지에서 스크랩 버튼을 클릭할 수 있게 됩니다.
     - **[ZOOPZOOP 웹페이지](https://www.zoopzoop.kro.kr/)** 에서 아키이브에 저장된 자료를 확인할 수 있습니다.
-
-- ![확장 프로그램 사용 가이드](public/readme/howtouse.gif)
+      ![확장 프로그램 사용 가이드](public/readme/howtouse.gif)
 
 ---
 
