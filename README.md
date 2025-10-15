@@ -47,47 +47,8 @@ ZOOPS-TENSION은 현재 크롬 웹 스토어에 등록되어 있지 않습니다
 
 ---
 
-## 🛠️ 개발자를 위한 안내
-
-### 시작하기
-
-프로젝트를 로컬 환경에서 실행하려면 다음 단계를 따르세요.
-
-1.  **저장소 복제**
-
-    ```bash
-    git clone https://github.com/your-repository-url.git
-    cd WEB5_6_ZOOPS_TENSION_FE
-    ```
-
-2.  **의존성 설치**
-
-    ```bash
-    npm install
-    ```
-
-3.  **개발 서버 실행**
-    ```bash
-    npm run dev
-    ```
-    > `vite` 개발 서버가 실행됩니다. 변경사항은 HMR(Hot Module Replacement)을 통해 자동으로 반영됩니다.
-
-### 빌드
-
-프로덕션용으로 확장 프로그램을 빌드하려면 다음 명령어를 사용하세요.
-
-```bash
-npm run build
-```
-
-빌드가 완료되면 `dist` 폴더에 압축되지 않은 확장 프로그램 파일이 생성됩니다. 이 폴더를 사용하여 위 `설치 가이드`에 따라 크롬에 설치할 수 있습니다.
-
----
-
 ## 💻 기술 스택
 
 - **Core**: `React`, `TypeScript`
 - **Build**: `Vite`
 - **Styling**: `Tailwind CSS`
-- **State Management**: `React Hooks`
-- **Linting**: `ESLint`
