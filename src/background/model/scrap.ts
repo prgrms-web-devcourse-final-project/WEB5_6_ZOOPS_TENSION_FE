@@ -52,6 +52,7 @@ export const scrapUrl = async (url: string): Promise<ScrapResponse> => {
 
     return { success: true, ...result };
   } catch (error) {
+    console.log('error', error);
     const msg =
       error instanceof Error ? error.message : '스크롤 하는 중에 에러가 났어요~';
 
