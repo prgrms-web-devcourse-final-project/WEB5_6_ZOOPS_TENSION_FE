@@ -20,24 +20,28 @@
 ZOOPS-TENSION은 현재 크롬 웹 스토어에 등록되어 있지 않습니다. 아래의 수동 설치 가이드를 따라주세요.
 
 1.  **확장 프로그램 다운로드**
-    -   아래 링크에서 `dist` 폴더를 다운로드하세요.
-    -   **[다운로드 링크 (준비 중)]** 
+
+    - 아래 링크에서 `dist` 폴더를 다운로드하세요.
+    - **[다운로드 링크 (준비 중)]**
 
 2.  **압축 해제**
-    -   다운로드한 파일의 압축을 해제합니다.
+
+    - 다운로드한 파일의 압축을 해제합니다.
 
 3.  **크롬 확장 프로그램 페이지 열기**
-    -   크롬 브라우저를 열고 주소창에 `chrome://extensions`를 입력하여 확장 프로그램 관리 페이지로 이동합니다.
+
+    - 크롬 브라우저를 열고 주소창에 `chrome://extensions`를 입력하여 확장 프로그램 관리 페이지로 이동합니다.
 
 4.  **개발자 모드 활성화**
-    -   페이지 우측 상단의 **'개발자 모드(Developer mode)'** 토글을 활성화해주세요.
+
+    - 페이지 우측 상단의 **'개발자 모드(Developer mode)'** 토글을 활성화해주세요.
 
 5.  **확장 프로그램 로드**
-    -   **'압축 해제된 확장 프로그램을 로드합니다(Load unpacked)'** 버튼을 클릭합니다.
-    -   파일 탐색기가 열리면, 아까 압축을 해제했던 **`dist`** 폴더를 선택하고 확인을 누릅니다.
-
+    - **'압축 해제된 확장 프로그램을 로드합니다(Load unpacked)'** 버튼을 클릭합니다.
+    - 파일 탐색기가 열리면, 아까 압축을 해제했던 **`dist`** 폴더를 선택하고 확인을 누릅니다.
+      ![alt text](public/readme/howtosetting.gif)
 6.  **설치 완료**
-    -   이제 ZOOPS-TENSION 확장 프로그램이 설치되어 브라우저 툴바에서 아이콘을 확인할 수 있습니다.
+    - 이제 ZOOPS-TENSION 확장 프로그램이 설치되어 브라우저 툴바에서 아이콘을 확인할 수 있습니다.
 
 ---
 
@@ -48,12 +52,14 @@ ZOOPS-TENSION은 현재 크롬 웹 스토어에 등록되어 있지 않습니다
 프로젝트를 로컬 환경에서 실행하려면 다음 단계를 따르세요.
 
 1.  **저장소 복제**
+
     ```bash
     git clone https://github.com/your-repository-url.git
     cd WEB5_6_ZOOPS_TENSION_FE
     ```
 
 2.  **의존성 설치**
+
     ```bash
     npm install
     ```
@@ -78,8 +84,8 @@ npm run build
 
 ## 💻 기술 스택
 
--   **Core**: `React`, `TypeScript`
--   **Build**: `Vite`
--   **Styling**: `Tailwind CSS`
--   **State Management**: `React Hooks`
--   **Linting**: `ESLint`
+- **Core**: `React`, `TypeScript`
+- **Build**: `Vite`
+- **Styling**: `Tailwind CSS`
+- **State Management**: `React Hooks`
+- **Linting**: `ESLint`
