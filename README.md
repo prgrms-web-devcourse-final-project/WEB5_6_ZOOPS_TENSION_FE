@@ -22,7 +22,7 @@ ZOOPS-TENSION은 현재 크롬 웹 스토어에 등록되어 있지 않습니다
 1.  **확장 프로그램 다운로드**
 
     - 아래 링크에서 `dist` 폴더를 다운로드하세요.
-    - **[다운로드 링크 (준비 중)]**
+    - **[ZOOPS-TENSION v1.0.0 다운로드](https://github.com/prgrms-web-devcourse-final-project/WEB5_6_ZOOPS_TENSION_FE/releases/download/chrome-extension/dist.zip)**
 
 2.  **압축 해제**
 
@@ -42,6 +42,8 @@ ZOOPS-TENSION은 현재 크롬 웹 스토어에 등록되어 있지 않습니다
       ![alt text](public/readme/howtosetting.gif)
 6.  **설치 완료**
     - 이제 ZOOPS-TENSION 확장 프로그램이 설치되어 브라우저 툴바에서 아이콘을 확인할 수 있습니다.
+7.  **사용 방법**
+    ![alt text](public/readme/howtouse.gif)
 
 ---
 
