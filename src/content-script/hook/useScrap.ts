@@ -23,8 +23,6 @@ export const useScrap = () => {
         new Promise((resolve) => setTimeout(resolve, 2000)),
       ]);
 
-      console.log('result', result);
-
       if (result.success) {
         setButtonState(BUTTON_STATUS.SUCCESS);
 

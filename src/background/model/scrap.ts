@@ -16,8 +16,6 @@ export const scrapUrl = async (url: string): Promise<ScrapResponse> => {
       STORAGE_KEY.ACCESS_TOKEN
     );
 
-    console.log('accessToken', accessToken);
-
     // 토큰이 없는 경우
     if (!accessToken) {
       createNotification.fail({ message: '로그인이 필요한 서비스입니다.' });
@@ -38,7 +36,6 @@ export const scrapUrl = async (url: string): Promise<ScrapResponse> => {
 
     const result: APIResponse<ScrapData> = await response.json();
 
-    console.log('result', result);
     if (!response.ok) {
       setTimeout(() => {
         createNotification.fail({ message: '해당 페이지 스크랩에 실패했습니다.' });
@@ -52,7 +49,6 @@ export const scrapUrl = async (url: string): Promise<ScrapResponse> => {
 
     return { success: true, ...result };
   } catch (error) {
-    console.log('error', error);
     const msg =
       error instanceof Error ? error.message : '스크롤 하는 중에 에러가 났어요~';
 

@@ -79,13 +79,11 @@ export const startPolling = async (state: string): Promise<void> => {
           clearInterval(interval);
           resolve();
         } else {
-          return; // 계속 폴링
+          return;
         }
       } catch (error) {
         if (error instanceof Error) {
-          console.error('에러 타입:', error.constructor.name);
           console.error('에러 메시지:', error.message);
-          console.error('에러 스택:', error.stack);
         } else {
           console.error('알 수 없는 에러:', error);
         }
