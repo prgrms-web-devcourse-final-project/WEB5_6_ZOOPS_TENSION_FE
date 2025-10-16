@@ -24,7 +24,7 @@ ZOOPS-TENSION은 현재 크롬 웹 스토어에 등록되어 있지 않습니다
 > 평가를 위해 확장 프로그램을 직접 설치하실 분들은  
 > **설치 후 [BE8] 정의진님께 크롬 확장 프로그램에서 표시되는 ID를 확인하여 DM으로 전달해주세요.**
 
-![확장프로그램 아이디](public/readme/extension_id.png)
+![확장프로그램 아이디](public/images/extension_id.png)
 
 1.  **확장 프로그램 다운로드**
 
